@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Attendance Management System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Smart Attendance Management System</h1>
+        <p>Teacher Attendance Dashboard</p>
+    </header>
+
+    <main>
+
+        <section class="summary">
+            <div class="card">
+                <h3>Total Students</h3>
+                <p>30</p>
+            </div>
+
+            <div class="card">
+                <h3>Present Today</h3>
+                <p>26</p>
+            </div>
+
+            <div class="card">
+                <h3>Absent Today</h3>
+                <p>4</p>
+            </div>
+        </section>
+
+        <section class="attendance">
+            <h2>Student Attendance</h2>
+
+            <table>
+                <tr>
+                    <th>Roll No.</th>
+                    <th>Student Name</th>
+                    <th>Status</th>
+                </tr>
+
+                <tr>
+                    <td>01</td>
+                    <td>Student 1</td>
+                    <td>Present</td>
+                </tr>
+
+                <tr>
+                    <td>02</td>
+                    <td>Student 2</td>
+                    <td>Present</td>
+                </tr>
+
+                <tr>
+                    <td>03</td>
+                    <td>Student 3</td>
+                    <td>Absent</td>
+                </tr>
+            </table>
+
+            <button onclick="markAttendance()">Mark Attendance</button>
+
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
