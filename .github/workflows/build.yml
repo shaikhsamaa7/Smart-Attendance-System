@@ -1,0 +1,23 @@
+name: Build Attendance Dashboard
+
+on:
+  push:
+    branches:
+      - main
+      - SCRUM-11-develop-attendance-dashboard
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Check project files
+        run: |
+          test -f index.html
+          test -f style.css
+          test -f script.js
+          echo "Attendance Dashboard build check passed!"

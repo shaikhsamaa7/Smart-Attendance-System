@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Attendance Management System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+    <h1>Smart Attendance Management System</h1>
+    <p>Teacher Attendance Dashboard</p>
+</header>
+
+<main>
+
+    <section class="summary">
+
+        <div class="card">
+            <h3>Total Students</h3>
+            <p id="totalStudents">10</p>
+        </div>
+
+        <div class="card">
+            <h3>Present Today</h3>
+            <p id="presentCount">0</p>
+        </div>
+
+        <div class="card">
+            <h3>Absent Today</h3>
+            <p id="absentCount">0</p>
+        </div>
+
+    </section>
+
+    <section class="attendance">
+
+        <h2>Student Attendance</h2>
+
+        <p id="attendancePercentage">
+            Attendance Percentage: 0%
+        </p>
+
+        <table>
+
+            <thead>
+                <tr>
+                    <th>Roll No.</th>
+                    <th>Student Name</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+
+            <tbody id="studentTable">
+
+                <tr>
+                    <td>01</td>
+                    <td>Student 1</td>
+                    <td class="status">Absent</td>
+                    <td>
+                        <button onclick="toggleAttendance(this)">
+                            Mark Present
+                        </button>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>02</td>
+                    <td>Student 2</td>
+                    <td class="status">Absent</td>
+                    <td>
+                        <button onclick="toggleAttendance(this)">
+                            Mark Present
+                        </button>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>03</td>
+                    <td>Student 3</td>
+                    <td class="status">Absent</td>
+                    <td>
+                        <button onclick="toggleAttendance(this)">
+                            Mark Present
+                        </button>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>04</td>
+                    <td>Student 4</td>
+                    <td class="status">Absent</td>
+                    <td>
+                        <button onclick="toggleAttendance(this)">
+                            Mark Present
+                        </button>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>05</td>
+                    <td>Student 5</td>
+                    <td class="status">Absent</td>
+                    <td>
+                        <button onclick="toggleAttendance(this)">
+                            Mark Present
+                        </button>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>06</td>
+                    <td>Student 6</td>
+                    <td class="status">Absent</td>
+                    <td>
+                        <button onclick="toggleAttendance(this)">
+                            Mark Present
+                        </button>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>07</td>
+                    <td>Student 7</td>
+                    <td class="status">Absent</td>
+                    <td>
+                        <button onclick="toggleAttendance(this)">
+                            Mark Present
+                        </button>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>08</td>
+                    <td>Student 8</td>
+                    <td class="status">Absent</td>
+                    <td>
+                        <button onclick="toggleAttendance(this)">
+                            Mark Present
+                        </button>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>09</td>
+                    <td>Student 9</td>
+                    <td class="status">Absent</td>
+                    <td>
+                        <button onclick="toggleAttendance(this)">
+                            Mark Present
+                        </button>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>10</td>
+                    <td>Student 10</td>
+                    <td class="status">Absent</td>
+                    <td>
+                        <button onclick="toggleAttendance(this)">
+                            Mark Present
+                        </button>
+                    </td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </section>
+
+</main>
+
+<script src="script.js"></script>
+
+</body>
+</html>
