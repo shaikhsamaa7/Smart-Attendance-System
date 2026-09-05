@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,12 +11,44 @@
 <body>
 
 <header>
-    <h1>Smart Attendance Management System</h1>
-    <p>Teacher Attendance Dashboard</p>
+    <div class="header-content">
+        <div>
+            <h1>Smart Attendance Management System</h1>
+            <p>Teacher Attendance Dashboard</p>
+        </div>
+    </div>
 </header>
 
 <main>
 
+    <!-- Date and Controls -->
+    <section class="controls-section">
+
+        <div class="date-control">
+            <label for="attendanceDate">Attendance Date</label>
+            <input type="date" id="attendanceDate">
+        </div>
+
+        <div class="control-buttons">
+            <button class="primary-btn" onclick="saveAttendance()">
+                Save Attendance
+            </button>
+
+            <button class="secondary-btn" onclick="loadAttendance()">
+                Load Date
+            </button>
+
+            <button class="export-btn" onclick="exportCSV()">
+                Export CSV
+            </button>
+        </div>
+
+    </section>
+
+    <!-- Message -->
+    <p id="message" class="message"></p>
+
+    <!-- Summary Cards -->
     <section class="summary">
 
         <div class="card">
@@ -23,156 +56,115 @@
             <p id="totalStudents">10</p>
         </div>
 
-        <div class="card">
-            <h3>Present Today</h3>
+        <div class="card present-card">
+            <h3>Present</h3>
             <p id="presentCount">0</p>
         </div>
 
-        <div class="card">
-            <h3>Absent Today</h3>
-            <p id="absentCount">0</p>
+        <div class="card absent-card">
+            <h3>Absent</h3>
+            <p id="absentCount">10</p>
+        </div>
+
+        <div class="card percentage-card">
+            <h3>Attendance</h3>
+            <p id="attendancePercentage">0%</p>
         </div>
 
     </section>
 
+    <!-- Attendance Section -->
     <section class="attendance">
 
-        <h2>Student Attendance</h2>
+        <div class="section-header">
+            <div>
+                <h2>Student Attendance</h2>
+                <p id="selectedDateText">Attendance for selected date</p>
+            </div>
 
-        <p id="attendancePercentage">
-            Attendance Percentage: 0%
+            <div class="search-box">
+                <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="Search student..."
+                    oninput="renderStudents()"
+                >
+            </div>
+        </div>
+
+        <div class="quick-actions">
+            <button onclick="markAllPresent()" class="small-btn">
+                Mark All Present
+            </button>
+
+            <button onclick="markAllAbsent()" class="small-btn">
+                Mark All Absent
+            </button>
+        </div>
+
+        <div class="table-container">
+
+            <table>
+
+                <thead>
+                    <tr>
+                        <th>Roll No.</th>
+                        <th>Student Name</th>
+                        <th>Status</th>
+                        <th>Attendance %</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+
+                <tbody id="studentTable"></tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+    <!-- Attendance History -->
+    <section class="history">
+
+        <div class="section-header">
+            <div>
+                <h2>Attendance History</h2>
+                <p>Saved attendance records</p>
+            </div>
+        </div>
+
+        <div class="table-container">
+
+            <table>
+
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Present</th>
+                        <th>Absent</th>
+                        <th>Attendance %</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+
+                <tbody id="historyTable"></tbody>
+
+            </table>
+
+        </div>
+
+        <p id="noHistory" class="no-history">
+            No attendance records saved yet.
         </p>
-
-        <table>
-
-            <thead>
-                <tr>
-                    <th>Roll No.</th>
-                    <th>Student Name</th>
-                    <th>Status</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-
-            <tbody id="studentTable">
-
-                <tr>
-                    <td>01</td>
-                    <td>Student 1</td>
-                    <td class="status">Absent</td>
-                    <td>
-                        <button onclick="toggleAttendance(this)">
-                            Mark Present
-                        </button>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td>02</td>
-                    <td>Student 2</td>
-                    <td class="status">Absent</td>
-                    <td>
-                        <button onclick="toggleAttendance(this)">
-                            Mark Present
-                        </button>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td>03</td>
-                    <td>Student 3</td>
-                    <td class="status">Absent</td>
-                    <td>
-                        <button onclick="toggleAttendance(this)">
-                            Mark Present
-                        </button>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td>04</td>
-                    <td>Student 4</td>
-                    <td class="status">Absent</td>
-                    <td>
-                        <button onclick="toggleAttendance(this)">
-                            Mark Present
-                        </button>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td>05</td>
-                    <td>Student 5</td>
-                    <td class="status">Absent</td>
-                    <td>
-                        <button onclick="toggleAttendance(this)">
-                            Mark Present
-                        </button>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td>06</td>
-                    <td>Student 6</td>
-                    <td class="status">Absent</td>
-                    <td>
-                        <button onclick="toggleAttendance(this)">
-                            Mark Present
-                        </button>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td>07</td>
-                    <td>Student 7</td>
-                    <td class="status">Absent</td>
-                    <td>
-                        <button onclick="toggleAttendance(this)">
-                            Mark Present
-                        </button>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td>08</td>
-                    <td>Student 8</td>
-                    <td class="status">Absent</td>
-                    <td>
-                        <button onclick="toggleAttendance(this)">
-                            Mark Present
-                        </button>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td>09</td>
-                    <td>Student 9</td>
-                    <td class="status">Absent</td>
-                    <td>
-                        <button onclick="toggleAttendance(this)">
-                            Mark Present
-                        </button>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td>10</td>
-                    <td>Student 10</td>
-                    <td class="status">Absent</td>
-                    <td>
-                        <button onclick="toggleAttendance(this)">
-                            Mark Present
-                        </button>
-                    </td>
-                </tr>
-
-            </tbody>
-
-        </table>
 
     </section>
 
 </main>
+
+<footer>
+    <p>Smart Attendance Management System</p>
+</footer>
 
 <script src="script.js"></script>
 
